@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace CarServiceManagement.Logging.Observer
@@ -24,7 +23,6 @@ namespace CarServiceManagement.Logging.Observer
         {
             if (status == Status.Error)
             {
-                Thread.Sleep(100);
                 CaptureScreenToFile(string.Format(fileName, counter++));
             }
         }

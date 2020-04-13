@@ -6,4 +6,4 @@ Membrii echipei:
 * Radu Lucian-Andrei
 * Răuță Iulia-Maria
 * Sîsîiac Georgian - Andrei
-* Stoica F. Ioana - Adriana
+* Stoica Ioana - Adriana

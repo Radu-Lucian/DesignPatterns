@@ -1,5 +1,8 @@
 ﻿using CarServiceManagement.Logging;
 using CarServiceManagement.Logging.Observer;
+using CarServiceManagement.Menu;
+using CarServiceManagement.Model;
+using System;
 using System.IO;
 using System.Reflection;
 
@@ -23,6 +26,14 @@ namespace CarServiceManagement
             Logger.Instance.LogOk("Test3");
             Logger.Instance.LogError("Test3");
             Logger.Instance.LogWarning("Test3");
+
+            var menu = new ProxyMenu();
+            var user = new User(1, "test", "test", EType.CLIENT);
+            menu.LogOut();
+            menu.LogIn(user);
+            menu.LogOut();
+
+            Console.ReadKey();
         }
     }
 }

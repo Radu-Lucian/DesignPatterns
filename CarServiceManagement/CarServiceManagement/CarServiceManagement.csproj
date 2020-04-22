@@ -42,11 +42,19 @@
     <Compile Include="Logging\Observer\FileLogObserver.cs" />
     <Compile Include="Logging\Observer\ILogObserver.cs" />
     <Compile Include="Logging\Status.cs" />
+    <Compile Include="Menu\IMenu.cs" />
+    <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\ProxyMenu.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\CarFaults.cs" />
+    <Compile Include="Model\EType.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

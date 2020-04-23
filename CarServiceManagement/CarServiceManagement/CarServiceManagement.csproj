@@ -37,6 +37,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chain Of Responsability\RentCarRequest.cs" />
+    <Compile Include="Chain Of Responsability\ServiceEmployee.cs" />
+    <Compile Include="Chain Of Responsability\ServiceManager.cs" />
+    <Compile Include="Chain Of Responsability\UserRequest.cs" />
+    <Compile Include="Decorator\BasicPackage.cs" />
+    <Compile Include="Util\EPackageType.cs" />
+    <Compile Include="Decorator\GoldDecorator.cs" />
+    <Compile Include="Decorator\IPackage.cs" />
+    <Compile Include="Decorator\PackageDecorator.cs" />
+    <Compile Include="Decorator\PlatinumDecorator.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Logging\Observer\ConsoleLogger.cs" />
     <Compile Include="Logging\Observer\ErrorScreenCaptureObserver.cs" />
@@ -46,12 +56,19 @@
     <Compile Include="Menu\IMenu.cs" />
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Menu\ProxyMenu.cs" />
-    <Compile Include="Model\Car.cs" />
-    <Compile Include="Model\CarFaultsManager.cs" />
-    <Compile Include="Model\ECarType.cs" />
-    <Compile Include="Model\EType.cs" />
+    <Compile Include="State\CarFaultsManager.cs" />
+    <Compile Include="Util\ECarType.cs" />
+    <Compile Include="Util\EType.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="State\Car.cs" />
+    <Compile Include="State\CarDetails.cs" />
+    <Compile Include="Util\EStateOption.cs" />
+    <Compile Include="State\FixedState.cs" />
+    <Compile Include="State\NewState.cs" />
+    <Compile Include="State\NotStartedState.cs" />
+    <Compile Include="State\State.cs" />
+    <Compile Include="State\WorkingState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

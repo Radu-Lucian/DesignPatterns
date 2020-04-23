@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarServiceManagement.Util;
 
 namespace CarServiceManagement.Decorator
 {
     public class BasicPackage : IPackage
-    { 
-        public EPackageType Type { get ; set ; }
-        public int Price { get ; set ; }
-        public string ServicesIncluded { get ; set ; }
+    {
+        public EPackageType Type { get; set; }
+        public int Price { get; set; }
+        public string ServicesIncluded { get; set; }
 
         public BasicPackage()
         {
@@ -27,6 +23,11 @@ namespace CarServiceManagement.Decorator
         public override string ToString()
         {
             return this.GetType().Name + " " + ServicesIncluded + ": " + Price + " RON per day";
+        }
+
+        public virtual int PackTime()
+        {
+            return 2;
         }
     }
 }

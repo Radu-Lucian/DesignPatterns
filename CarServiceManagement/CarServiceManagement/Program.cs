@@ -2,6 +2,8 @@
 using CarServiceManagement.Logging.Observer;
 using CarServiceManagement.Menu;
 using CarServiceManagement.Model;
+using CarServiceManagement.State;
+using CarServiceManagement.Util;
 using System;
 using System.IO;
 using System.Reflection;
@@ -16,34 +18,15 @@ namespace CarServiceManagement
             FileInfo outputLoggingFile = new FileInfo(Path.Combine(outputPath, "output.txt"));
             Logger.Instance.AddObservers(
                 new FileLogObserver(outputLoggingFile),
-                new ConsoleLogger() { IgnoreCallerInfo = true },
                 new ErrorScreenCaptureObserver(outputPath)
             );
 
-            Logger.Instance.LogOk("Test");
-            Logger.Instance.LogOk("Test1");
-            Logger.Instance.LogOk("Test2");
-            Logger.Instance.LogOk("Test3");
-            Logger.Instance.LogError("Test3");
-            Logger.Instance.LogWarning("Test3");
-
             var menu = new ProxyMenu();
             var user = new User(1, "test", "test", EType.CLIENT);
-
-            var car = new Car(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO");
-
-            menu.LogOut();
-            menu.LogIn(user);
-            menu.LogOut();
-            menu.RentACar();
-            menu.LogIn(user);
-            menu.RentACar();
-
-            //Console.ReadKey();
-            Console.WriteLine("\n");
+            var car = new Car(new CarDetails(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO"));
 
             int input;
-            while(true)
+            while (true)
             {
                 Console.WriteLine("------------------");
                 Console.WriteLine("Menu:");
@@ -68,8 +51,8 @@ namespace CarServiceManagement
                         break;
                     case 3:
                         menu.ServiceCar(car);
-                        car.CarFaultsManager.AddFault("Probleme la frane");
-                        car.CarFaultsManager.CompleteCurrentOperation();
+                        car.CarDetails.CarFaultsManager.AddFault("Probleme la frane");
+                        car.CarDetails.CarFaultsManager.CompleteCurrentOperation();
                         break;
                     case 4:
                         menu.RentACar();

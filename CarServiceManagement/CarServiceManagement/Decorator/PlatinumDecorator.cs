@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarServiceManagement.Util;
 
 namespace CarServiceManagement.Decorator
 {
@@ -17,6 +13,11 @@ namespace CarServiceManagement.Decorator
         {
             DecoratedPackage.Price += 700;
             ServicesIncluded = "Car with 2.0 diesel or gas engine + 1.000 EUR car crash insurance";
+        }
+
+        public override int PackTime()
+        {
+            return 7;
         }
     }
 }

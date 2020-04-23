@@ -13,5 +13,7 @@ namespace CarServiceManagement.Menu
         void RentACar();
         void ServiceCar(Car car, CarFaults carFaults);
         void CheckCar(Car car);
+        void Exit();
+
     }
 }

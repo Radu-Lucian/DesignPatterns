@@ -77,5 +77,10 @@ namespace CarServiceManagement.Menu
                 Console.WriteLine("You need to log in first!");
             }
         }
+
+        public void Exit()
+        {
+            Subject.Exit();
+        }
     }
 }

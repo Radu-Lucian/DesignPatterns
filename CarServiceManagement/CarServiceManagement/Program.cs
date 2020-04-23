@@ -29,6 +29,10 @@ namespace CarServiceManagement
 
             var menu = new ProxyMenu();
             var user = new User(1, "test", "test", EType.CLIENT);
+
+            var car = new Car();
+            var carFaults = new CarFaults();
+
             menu.LogOut();
             menu.LogIn(user);
             menu.LogOut();
@@ -36,7 +40,54 @@ namespace CarServiceManagement
             menu.LogIn(user);
             menu.RentACar();
 
-            Console.ReadKey();
+            //Console.ReadKey();
+            Console.WriteLine("\n");
+
+            int input;
+            while(true)
+            {
+                Console.WriteLine("------------------");
+                Console.WriteLine("Menu:");
+                Console.WriteLine("1 - Log In");
+                Console.WriteLine("2 - Check car");
+                Console.WriteLine("3 - Service car");
+                Console.WriteLine("4 - Rent a car");
+                Console.WriteLine("5 - Log Out");
+                Console.WriteLine("6 - Exit");
+                Console.WriteLine("------------------");
+                Console.WriteLine("\n");
+
+                input = Convert.ToInt32(Console.ReadLine());
+
+                switch (input)
+                {
+                    case 1:
+                        menu.LogIn(user);
+                        break;
+                    case 2:
+                        //menu.CheckCar(car);
+                        Console.WriteLine("The check car option is unavailable");
+                        break;
+                    case 3:
+                        //menu.ServiceCar(car, carFaults);
+                        Console.WriteLine("The service car option is unavailable");
+                        break;
+                    case 4:
+                        menu.RentACar();
+                        break;
+                    case 5:
+                        menu.LogOut();
+                        break;
+                    case 6:
+                        menu.Exit();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid command");
+                        break;
+
+                }
+
+            }
         }
     }
 }

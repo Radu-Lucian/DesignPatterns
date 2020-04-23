@@ -28,5 +28,10 @@ namespace CarServiceManagement.Menu
         {
             throw new NotImplementedException();
         }
+
+        public void Exit()
+        {
+            Environment.Exit(0);
+        }
     }
 }

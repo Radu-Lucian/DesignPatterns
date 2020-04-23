@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using CarServiceManagement.Util;
+using System;
 
-namespace CarServiceManagement.Model
+namespace CarServiceManagement.State
 {
-    public class Car
+    public class CarDetails
     {
         public ECarType CarType { get; set; }
-
         public string CarBrand { get; set; }
-
         public string Color { get; set; }
-
         public string VIN { get; set; }
-
         public string LicensePlate { get; set; }
 
         public CarFaultsManager CarFaultsManager;
 
 
-        public Car(ECarType type, string brand, string color, string vin, string plate)
+        public CarDetails(ECarType type, string brand, string color, string vin, string plate)
         {
             this.CarBrand = brand;
             this.CarType = type;
@@ -31,7 +23,7 @@ namespace CarServiceManagement.Model
             this.LicensePlate = plate;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return "CarBrand: " + CarBrand +
                 " CarType: " + CarType.ToString() +

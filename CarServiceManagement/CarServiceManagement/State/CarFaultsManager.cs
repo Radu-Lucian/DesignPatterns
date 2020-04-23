@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CarServiceManagement.Model
+namespace CarServiceManagement.State
 {
     public class CarFaultsManager
     {
@@ -29,16 +27,16 @@ namespace CarServiceManagement.Model
 
         public void GetCurrentProgress()
         {
-            if(_undone.Count > 0)
-                Console.WriteLine("Currently working on: "+ _undone.First());
+            if (_undone.Count > 0)
+                Console.WriteLine("Currently working on: " + _undone.First());
             else
             {
-                if(_undone.Count()==0&&_done.Count()==0)
+                if (_undone.Count() == 0 && _done.Count() == 0)
                     Console.WriteLine("Your car hasn't been revised by anybody. Please check again later.");
                 else
                     Console.WriteLine("Your car is done!");
             }
-               
+
         }
 
         public void CompleteCurrentOperation()
@@ -52,10 +50,10 @@ namespace CarServiceManagement.Model
 
         public void PrintFaults()
         {
-            if (_undone.Count()!=0)
+            if (_undone.Count() != 0)
             {
                 Console.WriteLine("Done:");
-                foreach(string f in _done)
+                foreach (string f in _done)
                 {
                     Console.WriteLine(f);
                 }

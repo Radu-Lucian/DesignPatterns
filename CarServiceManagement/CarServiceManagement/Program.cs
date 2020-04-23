@@ -32,6 +32,9 @@ namespace CarServiceManagement
             menu.LogOut();
             menu.LogIn(user);
             menu.LogOut();
+            menu.RentACar();
+            menu.LogIn(user);
+            menu.RentACar();
 
             Console.ReadKey();
         }

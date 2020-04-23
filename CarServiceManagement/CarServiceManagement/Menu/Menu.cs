@@ -21,7 +21,7 @@ namespace CarServiceManagement.Menu
 
         public void RentACar()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Rent a car!");
         }
 
         public void ServiceCar(Car car, CarFaults carFaults)

@@ -9,8 +9,9 @@ namespace CarServiceManagement.Menu
 {
     public class ProxyMenu : IMenu
     {
-        public User User { get; set; } = new User(1, "test", "test", EType.CLIENT);
-        public IMenu Subject { get; set; }
+        private User User { get; set; } = new User(1, "test", "test", EType.CLIENT);
+        private IMenu Subject { get; set; }
+        private bool IsLoggedIn { get; set; }
 
         public bool LogIn(User user)
         {
@@ -20,6 +21,7 @@ namespace CarServiceManagement.Menu
                 {
                     Subject = new Menu();
                 }
+                IsLoggedIn = true;
                 Console.WriteLine($"You are now logged in as {user.Username}!");
                 return true;
             }
@@ -29,7 +31,7 @@ namespace CarServiceManagement.Menu
 
         public void CheckCar(Car car)
         {
-            if (Subject != null)
+            if (Subject != null && IsLoggedIn == true)
             {
                 Subject.CheckCar(car);
             }
@@ -43,6 +45,7 @@ namespace CarServiceManagement.Menu
         {
             if (Subject != null)
             {
+                IsLoggedIn = false;
                 Subject.LogOut();
             }
             else
@@ -53,7 +56,7 @@ namespace CarServiceManagement.Menu
 
         public void RentACar()
         {
-            if (Subject != null)
+            if (Subject != null && IsLoggedIn == true)
             {
                 Subject.RentACar();
             }
@@ -65,7 +68,7 @@ namespace CarServiceManagement.Menu
 
         public void ServiceCar(Car car, CarFaults carFaults)
         {
-            if (Subject != null)
+            if (Subject != null && IsLoggedIn == true)
             {
                 Subject.ServiceCar(car, carFaults);
             }

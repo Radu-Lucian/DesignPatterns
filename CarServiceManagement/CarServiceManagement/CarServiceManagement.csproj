@@ -47,7 +47,8 @@
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Menu\ProxyMenu.cs" />
     <Compile Include="Model\Car.cs" />
-    <Compile Include="Model\CarFaults.cs" />
+    <Compile Include="Model\CarFaultsManager.cs" />
+    <Compile Include="Model\ECarType.cs" />
     <Compile Include="Model\EType.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />

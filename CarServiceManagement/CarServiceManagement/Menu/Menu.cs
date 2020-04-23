@@ -11,7 +11,7 @@ namespace CarServiceManagement.Menu
     {
         public void CheckCar(Car car)
         {
-            throw new NotImplementedException();
+            car.CheckCarState();
         }
 
         public void LogOut()
@@ -22,11 +22,12 @@ namespace CarServiceManagement.Menu
         public void RentACar()
         {
             Console.WriteLine("Rent a car!");
+            //aici trebuie sa ne legam de pachete(decorator)
         }
 
-        public void ServiceCar(Car car, CarFaults carFaults)
+        public void ServiceCar(Car car)
         {
-            throw new NotImplementedException();
+            car.CarGoesToService();
         }
 
         public void Exit()

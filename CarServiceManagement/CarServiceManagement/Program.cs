@@ -30,8 +30,7 @@ namespace CarServiceManagement
             var menu = new ProxyMenu();
             var user = new User(1, "test", "test", EType.CLIENT);
 
-            var car = new Car();
-            var carFaults = new CarFaults();
+            var car = new Car(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO");
 
             menu.LogOut();
             menu.LogIn(user);
@@ -65,12 +64,12 @@ namespace CarServiceManagement
                         menu.LogIn(user);
                         break;
                     case 2:
-                        //menu.CheckCar(car);
-                        Console.WriteLine("The check car option is unavailable");
+                        menu.CheckCar(car);
                         break;
                     case 3:
-                        //menu.ServiceCar(car, carFaults);
-                        Console.WriteLine("The service car option is unavailable");
+                        menu.ServiceCar(car);
+                        car.CarFaultsManager.AddFault("Probleme la frane");
+                        car.CarFaultsManager.CompleteCurrentOperation();
                         break;
                     case 4:
                         menu.RentACar();

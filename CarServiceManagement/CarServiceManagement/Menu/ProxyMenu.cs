@@ -66,11 +66,11 @@ namespace CarServiceManagement.Menu
             }
         }
 
-        public void ServiceCar(Car car, CarFaults carFaults)
+        public void ServiceCar(Car car)
         {
             if (Subject != null && IsLoggedIn == true)
             {
-                Subject.ServiceCar(car, carFaults);
+                Subject.ServiceCar(car);
             }
             else
             {

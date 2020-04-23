@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace CarServiceManagement.Model
 {
-    public class CarFaults
+    public enum ECarType
     {
+        EDiesel,
+        EGas
     }
 }

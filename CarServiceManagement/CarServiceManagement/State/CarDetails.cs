@@ -21,6 +21,7 @@ namespace CarServiceManagement.State
             this.Color = color;
             this.VIN = vin;
             this.LicensePlate = plate;
+            CarFaultsManager = new CarFaultsManager();
         }
 
         public override string ToString()

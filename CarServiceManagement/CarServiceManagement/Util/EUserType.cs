@@ -1,6 +1,6 @@
 ﻿namespace CarServiceManagement.Util
 {
-    public enum EType
+    public enum EUserType
     {
         CLIENT,
         ADMIN

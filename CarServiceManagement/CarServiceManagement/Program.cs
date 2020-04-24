@@ -7,11 +7,26 @@ using CarServiceManagement.Util;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace CarServiceManagement
 {
     class Program
     {
+        static void DisplayMenu()
+        {
+            Console.WriteLine("------------------");
+            Console.WriteLine("Menu:");
+            Console.WriteLine("1 - Log In");
+            Console.WriteLine("2 - Check car");
+            Console.WriteLine("3 - Service car");
+            Console.WriteLine("4 - Rent a car");
+            Console.WriteLine("5 - Log Out");
+            Console.WriteLine("6 - Exit");
+            Console.WriteLine("------------------");
+            Console.WriteLine("\n");
+        }
+
         static void Main(string[] args)
         {
             string outputPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -22,55 +37,55 @@ namespace CarServiceManagement
             );
 
             var menu = new ProxyMenu();
-            var user = new User(1, "test", "test", EType.CLIENT);
             var car = new Car(new CarDetails(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO"));
 
-            int input;
+            int input = 0;
+            DisplayMenu();
             while (true)
             {
-                Console.WriteLine("------------------");
-                Console.WriteLine("Menu:");
-                Console.WriteLine("1 - Log In");
-                Console.WriteLine("2 - Check car");
-                Console.WriteLine("3 - Service car");
-                Console.WriteLine("4 - Rent a car");
-                Console.WriteLine("5 - Log Out");
-                Console.WriteLine("6 - Exit");
-                Console.WriteLine("------------------");
-                Console.WriteLine("\n");
+                var line = Console.ReadLine();
 
-                input = Convert.ToInt32(Console.ReadLine());
-
-                switch (input)
+                if (!int.TryParse(line, out int result))
                 {
-                    case 1:
-                        Console.WriteLine("Please enter username: ");
-                        string username = Console.ReadLine();
-                        Console.WriteLine("Please enter password: ");
-                        string password = Console.ReadLine();
-                        menu.LogIn(username, password);
-                        break;
-                    case 2:
-                        menu.CheckCar(car);
-                        break;
-                    case 3:
-                        menu.ServiceCar(car);
-                        car.CarDetails.CarFaultsManager.AddFault("Probleme la frane");
-                        car.CarDetails.CarFaultsManager.CompleteCurrentOperation();
-                        break;
-                    case 4:
-                        menu.RentACar();
-                        break;
-                    case 5:
-                        menu.LogOut();
-                        break;
-                    case 6:
-                        menu.Exit();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid command");
-                        break;
+                    line = Console.ReadLine();
+                }
 
+                if (int.TryParse(line, out int result2))
+                {
+                    input = Convert.ToInt32(line);
+
+                    switch (input)
+                    {
+                        case 1:
+                            Console.Write("Please enter username: ");
+                            string username = Console.ReadLine();
+                            Console.Write("Please enter password: ");
+                            string password = Console.ReadLine();
+                            menu.LogIn(username, password);
+                            break;
+                        case 2:
+                            menu.CheckCar(car);
+                            break;
+                        case 3:
+                            menu.ServiceCar(car);
+                            car.CarDetails.CarFaultsManager.AddFault("Probleme la frane");
+                            car.CarDetails.CarFaultsManager.CompleteCurrentOperation();
+                            break;
+                        case 4:
+                            menu.RentACar();
+                            break;
+                        case 5:
+                            menu.LogOut();
+                            break;
+                        case 6:
+                            menu.Exit();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid command");
+                            break;
+
+                    }
+                    DisplayMenu();
                 }
 
             }

@@ -12,10 +12,10 @@ namespace CarServiceManagement.Repository
     {
         private readonly List<User> Users = new List<User>
         {
-            new User(1, "luci", "luci", EType.ADMIN),
-            new User(2, "iulia", "iulia", EType.CLIENT),
-            new User(3, "ioana", "ioana", EType.ADMIN),
-            new User(4, "george", "george", EType.CLIENT)
+            new User(1, "luci", "luci", EUserType.ADMIN),
+            new User(2, "iulia", "iulia", EUserType.CLIENT),
+            new User(3, "ioana", "ioana", EUserType.ADMIN),
+            new User(4, "george", "george", EUserType.CLIENT)
         };
 
         public bool CheckIfUserExists(string username, string password)

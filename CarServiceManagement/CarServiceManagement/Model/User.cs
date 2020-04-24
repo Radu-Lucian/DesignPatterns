@@ -7,9 +7,9 @@ namespace CarServiceManagement.Model
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public EType Type { get; set; }
+        public EUserType Type { get; set; }
 
-        public User(int id, string username, string password, EType type)
+        public User(int id, string username, string password, EUserType type)
         {
             this.Id = id;
             this.Username = username;

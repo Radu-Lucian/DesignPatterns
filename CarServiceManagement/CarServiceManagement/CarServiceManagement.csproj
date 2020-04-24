@@ -59,7 +59,7 @@
     <Compile Include="Proxy\ProxyMenu.cs" />
     <Compile Include="State\CarFaultsManager.cs" />
     <Compile Include="Util\ECarType.cs" />
-    <Compile Include="Util\EType.cs" />
+    <Compile Include="Util\EUserType.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="State\Car.cs" />

@@ -71,5 +71,17 @@ namespace CarServiceManagement.Repository
             }
             return c;
         }
+
+        public void UpdateCar(Car updatedCar)
+        {
+            for (var i=0;i<Cars.Count();i++)
+            {
+                if (Cars[i].CarDetails.VIN == updatedCar.CarDetails.VIN)
+                {
+                    Cars[i] = updatedCar;
+                    break;
+                }
+            }
+        }
     }
 }

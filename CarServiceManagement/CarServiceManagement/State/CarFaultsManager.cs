@@ -48,6 +48,20 @@ namespace CarServiceManagement.State
             }
         }
 
+        public void CompleteAllOperations()
+        {
+            while (_undone.Count > 0)
+            {
+                _done.Add(_undone.Last());
+                _undone.RemoveAt(_undone.Count - 1);
+            }
+        }
+
+        public bool IsDone()
+        {
+            return (_undone.Count() == 0 && _done.Count() > 0);
+        }
+
         public void PrintFaults()
         {
             if (_undone.Count() != 0)
@@ -55,12 +69,12 @@ namespace CarServiceManagement.State
                 Console.Write("Done: ");
                 foreach (string f in _done)
                 {
-                    Console.Write(f+" ");
+                    Console.Write(f+"; ");
                 }
                 Console.Write("\nUndone: ");
                 foreach (string f in _undone)
                 {
-                    Console.Write(f);
+                    Console.Write(f+"; ");
                 }
                 Console.WriteLine();
             }

@@ -91,7 +91,7 @@ namespace CarServiceManagement
                             menu.PrintCarsInService();
                             break;
                         case 8:
-                            Console.WriteLine("Update car state");
+                            menu.UpdateCarState();
                             break;
                         default:
                             Console.WriteLine("Invalid command");

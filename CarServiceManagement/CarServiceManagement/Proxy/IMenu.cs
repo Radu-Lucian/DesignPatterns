@@ -10,6 +10,7 @@ namespace CarServiceManagement.Proxy
         void CheckCar(Car car);
         void Exit();
         void PrintCarsInService();
+        void UpdateCarState();
 
     }
 }

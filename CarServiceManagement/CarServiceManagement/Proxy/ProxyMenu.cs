@@ -147,5 +147,21 @@ namespace CarServiceManagement.Proxy
                 Console.WriteLine("You need to log in first!");
             }
         }
+
+        public void UpdateCarState()
+        {
+            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.ADMIN)
+            {
+                Subject.UpdateCarState();
+            }
+            else if (User.Type == EUserType.ADMIN)
+            {
+                Console.WriteLine("Invalid operation. ADMIN only");
+            }
+            else
+            {
+                Console.WriteLine("You need to log in first!");
+            }
+        }
     }
 }

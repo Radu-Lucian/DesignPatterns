@@ -22,5 +22,10 @@ namespace CarServiceManagement.State
         {
             Console.WriteLine("Your car is already fixed");
         }
+
+        public override string ToString()
+        {
+            return "Fixed";
+        }
     }
 }

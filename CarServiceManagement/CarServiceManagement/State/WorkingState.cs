@@ -25,5 +25,10 @@ namespace CarServiceManagement.State
         {
             Console.WriteLine("Curently working on car");
         }
+
+        public override string ToString()
+        {
+            return "Working";
+        }
     }
 }

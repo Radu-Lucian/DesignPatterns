@@ -5,8 +5,7 @@ namespace CarServiceManagement.State
     public class Car
     {
         public CarDetails CarDetails;
-        public State carState;
-
+        public State CarState;
         public State FixedState { get; set; }
         public State WorkingOnState { get; set; }
         public State NotStartedState { get; set; }
@@ -19,7 +18,7 @@ namespace CarServiceManagement.State
             WorkingOnState = new WorkingState(this);
             NotStartedState = new NotStartedState(this);
             NewState = new NewState(this);
-            carState = NewState;
+            CarState = NewState;
         }
 
         public void UpdateState(EStateOption option)
@@ -27,13 +26,13 @@ namespace CarServiceManagement.State
             switch (option)
             {
                 case EStateOption.CheckCar:
-                    carState.CheckCar();
+                    CarState.CheckCar();
                     break;
                 case EStateOption.RepairCar:
-                    carState.RepairCar();
+                    CarState.RepairCar();
                     break;
                 case EStateOption.CheckOutCar:
-                    carState.CheckOutCar();
+                    CarState.CheckOutCar();
                     break;
                 default:
                     break;
@@ -41,7 +40,12 @@ namespace CarServiceManagement.State
         }
         public void SetCarState(State newState)
         {
-            carState = newState;
+            CarState = newState;
+        }
+
+        public override string ToString()
+        {
+            return $"Car: {CarDetails.CarBrand}, Color: {CarDetails.Color}, VIN: {CarDetails.VIN}, License Plate: {CarDetails.LicensePlate}, State: {CarState}";
         }
 
     }

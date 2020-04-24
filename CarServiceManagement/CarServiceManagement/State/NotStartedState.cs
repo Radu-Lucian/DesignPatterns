@@ -25,5 +25,10 @@ namespace CarServiceManagement.State
             Car.SetCarState(Car.WorkingOnState);
             Logger.Instance.LogOk("Car changed state");
         }
+
+        public override string ToString()
+        {
+            return "Not started";
+        }
     }
 }

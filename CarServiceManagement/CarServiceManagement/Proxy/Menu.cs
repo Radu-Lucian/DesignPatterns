@@ -26,11 +26,11 @@ namespace CarServiceManagement.Proxy
         {
             Console.WriteLine("Your choices are: \n");
             IPackage basic = new BasicPackage();
-            Console.WriteLine("1-"+basic.ToString());
+            Console.WriteLine("1-" + basic.ToString());
             IPackage gold = new GoldDecorator(basic);
-            Console.WriteLine("2-"+gold.ToString());
+            Console.WriteLine("2-" + gold.ToString());
             IPackage platinum = new PlatinumDecorator(basic);
-            Console.WriteLine("3-"+platinum.ToString());
+            Console.WriteLine("3-" + platinum.ToString());
             Console.WriteLine("4-Abort");
 
             Console.WriteLine("What do you wish for?");

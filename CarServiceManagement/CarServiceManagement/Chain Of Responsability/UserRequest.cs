@@ -17,11 +17,11 @@ namespace CarServiceManagement.Chain_Of_Responsability
             if (ApproveRequest(request))
             {
                 Console.WriteLine("Request for car rental was accepted!");
-                Logger.Instance.LogOk("Request"+request.RequestNumber+" processed succesfully by " + this.GetType().Name + "!");
+                Logger.Instance.LogOk("Request " + request.RequestNumber + " processed succesfully by " + this.GetType().Name + "!");
             }
             else if (ServiceWorker != null)
             {
-                Logger.Instance.LogOk("Car sent to another worker");
+                Logger.Instance.LogOk("Car sent to another worker.");
                 ServiceWorker.ApplyCarRentalRequest(request);
             }
         }

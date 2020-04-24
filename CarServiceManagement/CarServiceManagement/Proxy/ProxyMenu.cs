@@ -1,4 +1,5 @@
-﻿using CarServiceManagement.Model;
+﻿using CarServiceManagement.Logging;
+using CarServiceManagement.Model;
 using CarServiceManagement.Repository;
 using CarServiceManagement.State;
 using CarServiceManagement.Util;
@@ -22,6 +23,7 @@ namespace CarServiceManagement.Proxy
                     Subject = new Menu();
                 }
                 IsLoggedIn = true;
+                Logger.Instance.LogOk($"User has logged in with username: {username}");
                 Console.WriteLine($"You are now logged in as {username}!");
                 return true;
             }

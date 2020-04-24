@@ -1,4 +1,5 @@
-﻿using CarServiceManagement.Util;
+﻿using CarServiceManagement.State;
+using CarServiceManagement.Util;
 
 namespace CarServiceManagement.Model
 {
@@ -8,6 +9,7 @@ namespace CarServiceManagement.Model
         public string Username { get; set; }
         public string Password { get; set; }
         public EUserType Type { get; set; }
+        private Car Car { get; set; }
 
         public User(int id, string username, string password, EUserType type)
         {
@@ -17,9 +19,14 @@ namespace CarServiceManagement.Model
             this.Type = type;
         }
 
+        public void SetCar(Car car)
+        {
+            this.Car = car;
+        }
+
         public override string ToString()
         {
-            return $"Id: {Id}, Username: {Username}, Password: {Password}, Type: {Type}";
+            return $"Id: {Id}, Username: {Username}, Password: {Password}, Type: {Type} \n Car: {Car}";
         }
     }
 }

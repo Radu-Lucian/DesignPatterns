@@ -24,7 +24,7 @@ namespace CarServiceManagement.Decorator
 
         public override string ToString()
         {
-            return Type.ToString() + " " + ServicesIncluded + ": " + Price + " RON; "+PackTime+" days included";
+            return Type.ToString() + " " + ServicesIncluded + ": " + Price + " RON; " + PackTime + " days included";
         }
 
         public virtual int GetPackTime()

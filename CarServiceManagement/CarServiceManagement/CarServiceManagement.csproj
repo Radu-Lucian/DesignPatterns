@@ -42,6 +42,7 @@
     <Compile Include="Chain Of Responsability\ServiceManager.cs" />
     <Compile Include="Chain Of Responsability\UserRequest.cs" />
     <Compile Include="Decorator\BasicPackage.cs" />
+    <Compile Include="Repository\CarRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Util\EPackageType.cs" />
     <Compile Include="Decorator\GoldDecorator.cs" />

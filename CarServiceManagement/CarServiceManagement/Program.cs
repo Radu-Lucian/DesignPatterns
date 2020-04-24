@@ -39,8 +39,10 @@ namespace CarServiceManagement
             var menu = new ProxyMenu();
             var car = new Car(new CarDetails(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO"));
 
-            int input = 0;
+            int input;
+
             DisplayMenu();
+
             while (true)
             {
                 var line = Console.ReadLine();
@@ -85,6 +87,7 @@ namespace CarServiceManagement
                             break;
 
                     }
+
                     DisplayMenu();
                 }
 

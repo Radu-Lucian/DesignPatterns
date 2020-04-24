@@ -78,7 +78,15 @@ namespace CarServiceManagement.Menu
 
         public void Exit()
         {
-            Subject.Exit();
+            if (Subject != null)
+            {
+                Subject.Exit();
+            }
+            else
+            {
+                Subject = new Menu();
+                Subject.Exit();
+            }
         }
     }
 }

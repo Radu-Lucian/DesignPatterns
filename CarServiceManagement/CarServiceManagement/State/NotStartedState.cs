@@ -11,7 +11,7 @@ namespace CarServiceManagement.State
 
         public override void CheckCar()
         {
-            Console.WriteLine("Car is in service, not curently workedon");
+            Console.WriteLine("Car is in service, not curently worked on");
         }
 
         public override void CheckOutCar()

@@ -80,7 +80,15 @@ namespace CarServiceManagement.Proxy
 
         public void Exit()
         {
-            Subject.Exit();
+            if (Subject != null)
+            {
+                Subject.Exit();
+            }
+            else
+            {
+                Subject = new Menu();
+                Subject.Exit();
+            }
         }
     }
 }

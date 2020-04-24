@@ -11,19 +11,19 @@ namespace CarServiceManagement.State
 
         public override void CheckCar()
         {
-            Console.WriteLine("Working on car");
+            CheckCarCommand.Execute("Working on car");
         }
 
         public override void CheckOutCar()
         {
-            Console.WriteLine("Car sent to finish checks");
+            CheckOutCarCommand.Execute("Car sent to finish checks");
             Car.SetCarState(Car.FixedState);
             Logger.Instance.LogOk("Car changed state");
         }
 
         public override void RepairCar()
         {
-            Console.WriteLine("Curently working on car");
+            RepairCarCommand.Execute("Curently working on car");
         }
 
         public override string ToString()

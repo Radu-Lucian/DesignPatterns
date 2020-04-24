@@ -10,17 +10,17 @@ namespace CarServiceManagement.State
 
         public override void CheckCar()
         {
-            Console.WriteLine("Car is fixed");
+            CheckCarCommand.Execute("Car is fixed");
         }
 
         public override void CheckOutCar()
         {
-            Console.WriteLine("Your car is ready for pickup");
+            CheckOutCarCommand.Execute("Your car is ready for pickup");
         }
 
         public override void RepairCar()
         {
-            Console.WriteLine("Your car is already fixed");
+            RepairCarCommand.Execute("Your car is already fixed");
         }
 
         public override string ToString()

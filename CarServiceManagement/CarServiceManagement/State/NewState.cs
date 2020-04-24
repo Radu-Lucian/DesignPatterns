@@ -11,17 +11,17 @@ namespace CarServiceManagement.State
 
         public override void CheckCar()
         {
-            Console.WriteLine("Car is in new state");
+            CheckCarCommand.Execute("Car is in new state");
         }
 
         public override void CheckOutCar()
         {
-            Console.WriteLine("Car is not ready");
+            CheckOutCarCommand.Execute("Car is not ready");
         }
 
         public override void RepairCar()
         {
-            Console.WriteLine("Car was sent to the service");
+            RepairCarCommand.Execute("Car was sent to the service");
             Car.SetCarState(Car.NotStartedState);
             Logger.Instance.LogOk("Car changed state");
         }

@@ -24,15 +24,34 @@ namespace CarServiceManagement.Proxy
 
         public void RentACar()
         {
+            Console.WriteLine("Your choices are: \n");
             IPackage basic = new BasicPackage();
-            Console.WriteLine(basic.PackTime());
+            Console.WriteLine("1-"+basic.ToString());
             IPackage gold = new GoldDecorator(basic);
-            Console.WriteLine(gold.PackTime());
-            IPackage platinum = new PlatinumDecorator(gold);
-            Console.WriteLine(platinum.PackTime());
+            Console.WriteLine("2-"+gold.ToString());
+            IPackage platinum = new PlatinumDecorator(basic);
+            Console.WriteLine("3-"+platinum.ToString());
+            Console.WriteLine("4-Abort");
 
-            userRequest.ApplyCarRentalRequest(new RentCarRequest(platinum));
-            // cam asa functioneaza partea cu pachete, este totul rezolvat, mai trebuie un meniu sa isi aleaga utilizatorul tot ce doreste
+            Console.WriteLine("What do you wish for?");
+            int input = Convert.ToInt32(Console.ReadLine());
+            switch(input)
+            {
+                case 1:
+                    userRequest.ApplyCarRentalRequest(new RentCarRequest(basic));
+                    break;
+                case 2:
+                    userRequest.ApplyCarRentalRequest(new RentCarRequest(gold));
+                    break;
+                case 3:
+                    userRequest.ApplyCarRentalRequest(new RentCarRequest(platinum));
+                    break;
+                case 4:
+                    break;
+                default:
+                    Console.WriteLine("Invalid command");
+                    break;
+            }
         }
 
         public void ServiceCar(Car car)

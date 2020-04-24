@@ -15,6 +15,8 @@ namespace CarServiceManagement.Decorator
         public int Price { get; set; }
         public string ServicesIncluded { get; set; }
 
+        public int PackTime { get; set; }
+
         public abstract void Update();
 
         public override string ToString()
@@ -22,7 +24,7 @@ namespace CarServiceManagement.Decorator
             return DecoratedPackage.ToString();
         }
 
-        public virtual int PackTime()
+        public virtual int GetPackTime()
         {
             return 0;
         }

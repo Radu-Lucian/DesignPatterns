@@ -12,10 +12,11 @@ namespace CarServiceManagement.Decorator
         }
         public override void Update()
         {
-            DecoratedPackage.Price += 500;
-            ServicesIncluded = "Car with 1.6 diesel engine.";
+            DecoratedPackage.Price += 1000;
+            DecoratedPackage.ServicesIncluded = "Car with 1.6 diesel engine.";
+            DecoratedPackage.PackTime += 2;
         }
-        public override int PackTime()
+        public override int GetPackTime()
         {
             return 4;
         }

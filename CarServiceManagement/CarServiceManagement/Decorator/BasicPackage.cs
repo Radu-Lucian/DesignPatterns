@@ -7,6 +7,7 @@ namespace CarServiceManagement.Decorator
         public EPackageType Type { get; set; }
         public int Price { get; set; }
         public string ServicesIncluded { get; set; }
+        public int PackTime { get; set; }
 
         public BasicPackage()
         {
@@ -16,16 +17,17 @@ namespace CarServiceManagement.Decorator
 
         public void Update()
         {
-            Price = 1000;
+            Price = 1500;
             ServicesIncluded = "Car with 1.4 gas engine.";
+            PackTime = 2;
         }
 
         public override string ToString()
         {
-            return this.GetType().Name + " " + ServicesIncluded + ": " + Price + " RON per day";
+            return Type.ToString() + " " + ServicesIncluded + ": " + Price + " RON; "+PackTime+" days included";
         }
 
-        public virtual int PackTime()
+        public virtual int GetPackTime()
         {
             return 2;
         }

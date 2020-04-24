@@ -17,7 +17,7 @@ namespace CarServiceManagement.Chain_Of_Responsability
 
         public int GetNumberOfDays()
         {
-            return SelectedPackage.PackTime();
+            return SelectedPackage.GetPackTime();
         }
     }
 }

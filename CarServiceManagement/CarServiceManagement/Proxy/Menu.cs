@@ -81,7 +81,7 @@ namespace CarServiceManagement.Proxy
             Console.WriteLine("Enter VIN for the car's you want to update");
             string vin = Console.ReadLine();
             Car carToUpdate = CarRepository.Instance.GetCar(vin);
-            if (carToUpdate != null)
+            if (carToUpdate != null && (carToUpdate.CarState==carToUpdate.NotStartedState||carToUpdate.CarState == carToUpdate.WorkingOnState))
             {
                 switch (carToUpdate.CarState.GetType().Name)
                 {
@@ -141,6 +141,10 @@ namespace CarServiceManagement.Proxy
                         break;
                 }
                 CarRepository.Instance.UpdateCar(carToUpdate);
+            }
+            else if (carToUpdate.CarState != carToUpdate.NotStartedState || carToUpdate.CarState != carToUpdate.WorkingOnState)
+            {
+                Console.WriteLine("This car is not in service (anymore).");
             }
             else
             {

@@ -41,6 +41,10 @@
     <Compile Include="Chain Of Responsability\ServiceEmployee.cs" />
     <Compile Include="Chain Of Responsability\ServiceManager.cs" />
     <Compile Include="Chain Of Responsability\UserRequest.cs" />
+    <Compile Include="Command\CheckCarCommand.cs" />
+    <Compile Include="Command\CheckOutCarCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\RepairCarCommand.cs" />
     <Compile Include="Decorator\BasicPackage.cs" />
     <Compile Include="Repository\CarRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />

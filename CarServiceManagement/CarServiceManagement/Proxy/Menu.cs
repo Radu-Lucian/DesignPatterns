@@ -4,7 +4,7 @@ using CarServiceManagement.State;
 using CarServiceManagement.Util;
 using System;
 
-namespace CarServiceManagement.Menu
+namespace CarServiceManagement.Proxy
 {
     public class Menu : IMenu
     {

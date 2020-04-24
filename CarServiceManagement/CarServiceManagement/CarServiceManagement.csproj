@@ -42,6 +42,7 @@
     <Compile Include="Chain Of Responsability\ServiceManager.cs" />
     <Compile Include="Chain Of Responsability\UserRequest.cs" />
     <Compile Include="Decorator\BasicPackage.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Util\EPackageType.cs" />
     <Compile Include="Decorator\GoldDecorator.cs" />
     <Compile Include="Decorator\IPackage.cs" />
@@ -53,9 +54,9 @@
     <Compile Include="Logging\Observer\FileLogObserver.cs" />
     <Compile Include="Logging\Observer\ILogObserver.cs" />
     <Compile Include="Logging\Status.cs" />
-    <Compile Include="Menu\IMenu.cs" />
-    <Compile Include="Menu\Menu.cs" />
-    <Compile Include="Menu\ProxyMenu.cs" />
+    <Compile Include="Proxy\IMenu.cs" />
+    <Compile Include="Proxy\Menu.cs" />
+    <Compile Include="Proxy\ProxyMenu.cs" />
     <Compile Include="State\CarFaultsManager.cs" />
     <Compile Include="Util\ECarType.cs" />
     <Compile Include="Util\EType.cs" />

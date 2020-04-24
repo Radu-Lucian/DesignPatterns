@@ -16,5 +16,10 @@ namespace CarServiceManagement.Model
             this.Password = password;
             this.Type = type;
         }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Username: {Username}, Password: {Password}, Type: {Type}";
+        }
     }
 }

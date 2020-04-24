@@ -1,26 +1,28 @@
 ﻿using CarServiceManagement.Model;
+using CarServiceManagement.Repository;
 using CarServiceManagement.State;
 using CarServiceManagement.Util;
 using System;
+using System.Collections.Generic;
 
-namespace CarServiceManagement.Menu
+namespace CarServiceManagement.Proxy
 {
     public class ProxyMenu : IMenu
     {
-        private User User { get; set; } = new User(1, "test", "test", EType.CLIENT);
         private IMenu Subject { get; set; }
         private bool IsLoggedIn { get; set; }
+        private readonly UserRepository UsersList = new UserRepository();
 
-        public bool LogIn(User user)
+        public bool LogIn(string username, string password)
         {
-            if (this.User.Password == user.Password && this.User.Username == user.Username)
+            if (UsersList.CheckIfUserExists(username, password) == true)
             {
                 if (Subject == null)
                 {
                     Subject = new Menu();
                 }
                 IsLoggedIn = true;
-                Console.WriteLine($"You are now logged in as {user.Username}!");
+                Console.WriteLine($"You are now logged in as {username}!");
                 return true;
             }
             Console.WriteLine("Wrong credentials! Please try again!");

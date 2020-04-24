@@ -1,6 +1,6 @@
 ﻿using CarServiceManagement.Logging;
 using CarServiceManagement.Logging.Observer;
-using CarServiceManagement.Menu;
+using CarServiceManagement.Proxy;
 using CarServiceManagement.Model;
 using CarServiceManagement.State;
 using CarServiceManagement.Util;
@@ -44,7 +44,11 @@ namespace CarServiceManagement
                 switch (input)
                 {
                     case 1:
-                        menu.LogIn(user);
+                        Console.WriteLine("Please enter username: ");
+                        string username = Console.ReadLine();
+                        Console.WriteLine("Please enter password: ");
+                        string password = Console.ReadLine();
+                        menu.LogIn(username, password);
                         break;
                     case 2:
                         menu.CheckCar(car);

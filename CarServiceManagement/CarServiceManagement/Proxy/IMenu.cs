@@ -1,6 +1,6 @@
 ﻿using CarServiceManagement.State;
 
-namespace CarServiceManagement.Menu
+namespace CarServiceManagement.Proxy
 {
     public interface IMenu
     {

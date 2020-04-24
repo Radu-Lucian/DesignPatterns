@@ -11,8 +11,13 @@ namespace CarServiceManagement.Proxy
     public class ProxyMenu : IMenu
     {
         private IMenu Subject { get; set; }
-        private bool IsLoggedIn { get; set; }
+        private bool IsLoggedIn { get; set; } = false;
         private User User { get; set; }
+
+        public bool GetIsLoggedIn()
+        {
+            return IsLoggedIn;
+        }
 
         public bool LogIn(string username, string password)
         {
@@ -36,13 +41,16 @@ namespace CarServiceManagement.Proxy
 
         public void CheckCar(Car car)
         {
-            if (Subject != null && IsLoggedIn == true && User.Type==EUserType.CLIENT)
+            if (Subject != null)
             {
-                Subject.CheckCar(User.Car);
-            }
-            else if (User.Type == EUserType.ADMIN)
-            {
-                Console.WriteLine("Invalid operation. CLIENT only");
+                if (IsLoggedIn == true && User.Type == EUserType.CLIENT)
+                {
+                    Subject.CheckCar(User.Car);
+                }
+                else if (User.Type == EUserType.ADMIN)
+                {
+                    Console.WriteLine("Invalid operation. CLIENT only");
+                }
             }
             else
             {
@@ -54,8 +62,15 @@ namespace CarServiceManagement.Proxy
         {
             if (Subject != null)
             {
-                IsLoggedIn = false;
-                Subject.LogOut();
+                if (IsLoggedIn == true)
+                {
+                    IsLoggedIn = false;
+                    Subject.LogOut();
+                }
+                else
+                {
+                    Console.WriteLine("You need to log in first!");
+                }
             }
             else
             {
@@ -65,13 +80,16 @@ namespace CarServiceManagement.Proxy
 
         public void RentACar()
         {
-            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.CLIENT)
+            if (Subject != null)
             {
-                Subject.RentACar();
-            }
-            else if (User.Type == EUserType.ADMIN)
-            {
-                Console.WriteLine("Invalid operation. CLIENT only");
+                if (IsLoggedIn == true && User.Type == EUserType.CLIENT)
+                {
+                    Subject.RentACar();
+                }
+                else if (User.Type == EUserType.ADMIN)
+                {
+                    Console.WriteLine("Invalid operation. CLIENT only");
+                }
             }
             else
             {
@@ -81,13 +99,16 @@ namespace CarServiceManagement.Proxy
 
         public void ServiceCar(Car car)
         {
-            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.CLIENT)
+            if (Subject != null)
             {
-                Subject.ServiceCar(User.Car);
-            }
-            else if (User.Type == EUserType.ADMIN)
-            {
-                Console.WriteLine("Invalid operation. CLIENT only");
+                if (IsLoggedIn == true && User.Type == EUserType.CLIENT)
+                {
+                    Subject.ServiceCar(User.Car);
+                }
+                else if (User.Type == EUserType.ADMIN)
+                {
+                    Console.WriteLine("Invalid operation. CLIENT only");
+                }
             }
             else
             {
@@ -110,13 +131,16 @@ namespace CarServiceManagement.Proxy
 
         public void PrintCarsInService()
         {
-            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.ADMIN)
+            if (Subject != null)
             {
-                Subject.PrintCarsInService();
-            }
-            else if (User.Type == EUserType.ADMIN)
-            {
-                Console.WriteLine("Invalid operation. ADMIN only");
+                if (IsLoggedIn == true && User.Type == EUserType.ADMIN)
+                {
+                    Subject.PrintCarsInService();
+                }
+                else if (User.Type == EUserType.ADMIN)
+                {
+                    Console.WriteLine("Invalid operation. ADMIN only");
+                }
             }
             else
             {

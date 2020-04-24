@@ -59,11 +59,18 @@ namespace CarServiceManagement
                     switch (input)
                     {
                         case 1:
-                            Console.Write("Please enter username: ");
-                            string username = Console.ReadLine();
-                            Console.Write("Please enter password: ");
-                            string password = Console.ReadLine();
-                            menu.LogIn(username, password);
+                            if (menu.GetIsLoggedIn() == false)
+                            {
+                                Console.Write("Please enter username: ");
+                                string username = Console.ReadLine();
+                                Console.Write("Please enter password: ");
+                                string password = Console.ReadLine();
+                                menu.LogIn(username, password);
+                            }
+                            else
+                            {
+                                Console.WriteLine("You are already logged in!");
+                            }
                             break;
                         case 4:
                             menu.CheckCar(null);
@@ -84,7 +91,7 @@ namespace CarServiceManagement
                             menu.PrintCarsInService();
                             break;
                         case 8:
-                            Console.WriteLine("update car state");
+                            Console.WriteLine("Update car state");
                             break;
                         default:
                             Console.WriteLine("Invalid command");

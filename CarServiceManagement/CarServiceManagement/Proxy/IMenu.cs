@@ -9,6 +9,7 @@ namespace CarServiceManagement.Proxy
         void ServiceCar(Car car);
         void CheckCar(Car car);
         void Exit();
+        void PrintCarsInService();
 
     }
 }

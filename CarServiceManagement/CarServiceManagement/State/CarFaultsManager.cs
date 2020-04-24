@@ -52,16 +52,17 @@ namespace CarServiceManagement.State
         {
             if (_undone.Count() != 0)
             {
-                Console.WriteLine("Done:");
+                Console.Write("Done: ");
                 foreach (string f in _done)
                 {
-                    Console.WriteLine(f);
+                    Console.Write(f+" ");
                 }
-                Console.WriteLine("Undone:");
+                Console.Write("\nUndone: ");
                 foreach (string f in _undone)
                 {
-                    Console.WriteLine(f);
+                    Console.Write(f);
                 }
+                Console.WriteLine();
             }
             else if (_done.Count() != 0)
             {

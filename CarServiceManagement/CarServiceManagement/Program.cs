@@ -15,15 +15,18 @@ namespace CarServiceManagement
     {
         static void DisplayMenu()
         {
-            Console.WriteLine("------------------");
+            Console.WriteLine("\n");
             Console.WriteLine("Menu:");
             Console.WriteLine("1 - Log In");
-            Console.WriteLine("2 - Check car");
-            Console.WriteLine("3 - Service car");
-            Console.WriteLine("4 - Rent a car");
-            Console.WriteLine("5 - Log Out");
-            Console.WriteLine("6 - Exit");
-            Console.WriteLine("------------------");
+            Console.WriteLine("2 - Log Out");
+            Console.WriteLine("3 - Exit");
+            Console.WriteLine("----------CLIENT ONLY----------");
+            Console.WriteLine("4 - Check car");
+            Console.WriteLine("5 - Service car");
+            Console.WriteLine("6 - Rent a car");
+            Console.WriteLine("----------ADMIN ONLY----------");
+            Console.WriteLine("7 - Print cars in service");
+            Console.WriteLine("8 - Update car state");
             Console.WriteLine("\n");
         }
 
@@ -40,7 +43,6 @@ namespace CarServiceManagement
             int input;
 
             DisplayMenu();
-
             while (true)
             {
                 var line = Console.ReadLine();
@@ -63,20 +65,26 @@ namespace CarServiceManagement
                             string password = Console.ReadLine();
                             menu.LogIn(username, password);
                             break;
-                        case 2:
+                        case 4:
                             menu.CheckCar(null);
                             break;
-                        case 3:
+                        case 5:
                             menu.ServiceCar(null);
                             break;
-                        case 4:
+                        case 6:
                             menu.RentACar();
                             break;
-                        case 5:
+                        case 2:
                             menu.LogOut();
                             break;
-                        case 6:
+                        case 3:
                             menu.Exit();
+                            break;
+                        case 7:
+                            menu.PrintCarsInService();
+                            break;
+                        case 8:
+                            Console.WriteLine("update car state");
                             break;
                         default:
                             Console.WriteLine("Invalid command");

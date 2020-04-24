@@ -10,7 +10,8 @@ namespace CarServiceManagement.State
 
         public override void CheckCar()
         {
-            CheckCarCommand.Execute("Car is fixed");
+            CheckCarCommand.Execute("Car is: fixed");
+            CheckCarCommand.Execute("Your car is ready for pickup");
         }
 
         public override void CheckOutCar()
@@ -25,7 +26,7 @@ namespace CarServiceManagement.State
 
         public override string ToString()
         {
-            return "Fixed";
+            return "Car is: Fixed";
         }
     }
 }

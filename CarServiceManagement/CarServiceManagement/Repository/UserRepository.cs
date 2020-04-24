@@ -18,7 +18,8 @@ namespace CarServiceManagement.Repository
             new User(1, "luci", "luci", EUserType.CLIENT),
             new User(2, "iulia", "iulia", EUserType.CLIENT),
             new User(3, "ioana", "ioana", EUserType.CLIENT),
-            new User(4, "george", "george", EUserType.CLIENT)
+            new User(4, "george", "george", EUserType.CLIENT),
+            new User(4, "admin", "admin", EUserType.ADMIN)
         };
 
         public UserRepository()

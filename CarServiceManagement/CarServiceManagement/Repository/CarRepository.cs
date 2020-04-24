@@ -15,7 +15,7 @@ namespace CarServiceManagement.Repository
 
         private readonly List<Car> Cars = new List<Car>
         {
-            new Car(new CarDetails(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO")),
+            new Car(new CarDetails(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 99 SJA")),
             new Car(new CarDetails(ECarType.EDiesel, "VW", "grey", "2FMHK6DT7FBA101010", "BV 98 RIM")),
             new Car(new CarDetails(ECarType.EDiesel, "VW", "black", "2FMHK6DT7FBA251530", "BV 98 SGA")),
             new Car(new CarDetails(ECarType.EDiesel, "Mercedes", "grey", "2FMHK6DT7FBA653587", "BV 10 ABC"))
@@ -23,7 +23,12 @@ namespace CarServiceManagement.Repository
 
         public CarRepository()
         {
+            Cars[0].SetCarState(Cars[0].WorkingOnState);
+            Cars[0].CarDetails.CarFaultsManager.AddFault("schimbare fuzeta");
 
+            Cars[1].SetCarState(Cars[1].NotStartedState);
+
+            Cars[2].SetCarState(Cars[2].FixedState);
         }
 
         public static CarRepository Instance
@@ -52,6 +57,19 @@ namespace CarServiceManagement.Repository
             }
 
             return null;
+        }
+
+        public List<Car> GetCarsInService()
+        {
+            List<Car> c = new List<Car>();
+            foreach (var car in Cars)
+            {
+                if (car.CarState==car.NotStartedState||car.CarState==car.WorkingOnState)
+                {
+                    c.Add(car);
+                }
+            }
+            return c;
         }
     }
 }

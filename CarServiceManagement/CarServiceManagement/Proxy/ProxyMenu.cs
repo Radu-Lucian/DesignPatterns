@@ -26,6 +26,8 @@ namespace CarServiceManagement.Proxy
                 User = UserRepository.Instance.FindUserByUsername(username);
                 Logger.Instance.LogOk($"User has logged in with username: {username}");
                 Console.WriteLine($"You are now logged in as {username}!");
+                if(User.Type==EUserType.CLIENT)
+                    Console.WriteLine(User.Car.ToString());
                 return true;
             }
             Console.WriteLine("Wrong credentials! Please try again!");
@@ -34,9 +36,13 @@ namespace CarServiceManagement.Proxy
 
         public void CheckCar(Car car)
         {
-            if (Subject != null && IsLoggedIn == true)
+            if (Subject != null && IsLoggedIn == true && User.Type==EUserType.CLIENT)
             {
                 Subject.CheckCar(User.Car);
+            }
+            else if (User.Type == EUserType.ADMIN)
+            {
+                Console.WriteLine("Invalid operation. CLIENT only");
             }
             else
             {
@@ -59,9 +65,13 @@ namespace CarServiceManagement.Proxy
 
         public void RentACar()
         {
-            if (Subject != null && IsLoggedIn == true)
+            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.CLIENT)
             {
                 Subject.RentACar();
+            }
+            else if (User.Type == EUserType.ADMIN)
+            {
+                Console.WriteLine("Invalid operation. CLIENT only");
             }
             else
             {
@@ -71,11 +81,13 @@ namespace CarServiceManagement.Proxy
 
         public void ServiceCar(Car car)
         {
-            if (Subject != null && IsLoggedIn == true)
+            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.CLIENT)
             {
                 Subject.ServiceCar(User.Car);
-                User.Car.CarDetails.CarFaultsManager.AddFault("Probleme la frane");
-                User.Car.CarDetails.CarFaultsManager.CompleteCurrentOperation();
+            }
+            else if (User.Type == EUserType.ADMIN)
+            {
+                Console.WriteLine("Invalid operation. CLIENT only");
             }
             else
             {
@@ -93,6 +105,22 @@ namespace CarServiceManagement.Proxy
             {
                 Subject = new Menu();
                 Subject.Exit();
+            }
+        }
+
+        public void PrintCarsInService()
+        {
+            if (Subject != null && IsLoggedIn == true && User.Type == EUserType.ADMIN)
+            {
+                Subject.PrintCarsInService();
+            }
+            else if (User.Type == EUserType.ADMIN)
+            {
+                Console.WriteLine("Invalid operation. ADMIN only");
+            }
+            else
+            {
+                Console.WriteLine("You need to log in first!");
             }
         }
     }

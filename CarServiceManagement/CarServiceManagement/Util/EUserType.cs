@@ -3,6 +3,7 @@
     public enum EUserType
     {
         CLIENT,
-        ADMIN
+        ADMIN,
+        INVALID
     }
 }

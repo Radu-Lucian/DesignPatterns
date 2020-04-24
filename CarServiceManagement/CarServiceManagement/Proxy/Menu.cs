@@ -1,8 +1,10 @@
 ﻿using CarServiceManagement.Chain_Of_Responsability;
 using CarServiceManagement.Decorator;
+using CarServiceManagement.Repository;
 using CarServiceManagement.State;
 using CarServiceManagement.Util;
 using System;
+using System.Collections.Generic;
 
 namespace CarServiceManagement.Proxy
 {
@@ -62,6 +64,15 @@ namespace CarServiceManagement.Proxy
         public void Exit()
         {
             Environment.Exit(0);
+        }
+
+        public void PrintCarsInService()
+        {
+            List<Car> carsInService = CarRepository.Instance.GetCarsInService();
+            foreach(Car car in carsInService)
+            {
+                Console.WriteLine(car.ToString());
+            }
         }
     }
 }

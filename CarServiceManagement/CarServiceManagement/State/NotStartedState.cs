@@ -11,7 +11,8 @@ namespace CarServiceManagement.State
 
         public override void CheckCar()
         {
-            CheckCarCommand.Execute("Car is in service, not curently worked on");
+            CheckCarCommand.Execute("Car is: in service but not revised");
+            Car.CarDetails.CheckCarState();
         }
 
         public override void CheckOutCar()
@@ -21,14 +22,14 @@ namespace CarServiceManagement.State
 
         public override void RepairCar()
         {
-            RepairCarCommand.Execute("Started working on car");
-            Car.SetCarState(Car.WorkingOnState);
-            Logger.Instance.LogOk("Car changed state");
+            RepairCarCommand.Execute("Your car is already in the service.");
+            //Car.SetCarState(Car.WorkingOnState);
+            //Logger.Instance.LogOk("Car changed state");
         }
 
         public override string ToString()
         {
-            return "Not started";
+            return "Car is: not revised yet";
         }
     }
 }

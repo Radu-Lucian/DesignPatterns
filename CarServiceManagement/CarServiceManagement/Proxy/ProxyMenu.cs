@@ -12,17 +12,18 @@ namespace CarServiceManagement.Proxy
     {
         private IMenu Subject { get; set; }
         private bool IsLoggedIn { get; set; }
-        private readonly UserRepository UsersList = new UserRepository();
+        private User User { get; set; }
 
         public bool LogIn(string username, string password)
         {
-            if (UsersList.CheckIfUserExists(username, password) == true)
+            if (UserRepository.Instance.CheckIfUserExists(username, password) == true)
             {
                 if (Subject == null)
                 {
                     Subject = new Menu();
                 }
                 IsLoggedIn = true;
+                User = UserRepository.Instance.FindUserByUsername(username);
                 Logger.Instance.LogOk($"User has logged in with username: {username}");
                 Console.WriteLine($"You are now logged in as {username}!");
                 return true;
@@ -35,7 +36,7 @@ namespace CarServiceManagement.Proxy
         {
             if (Subject != null && IsLoggedIn == true)
             {
-                Subject.CheckCar(car);
+                Subject.CheckCar(User.Car);
             }
             else
             {
@@ -72,7 +73,9 @@ namespace CarServiceManagement.Proxy
         {
             if (Subject != null && IsLoggedIn == true)
             {
-                Subject.ServiceCar(car);
+                Subject.ServiceCar(User.Car);
+                User.Car.CarDetails.CarFaultsManager.AddFault("Probleme la frane");
+                User.Car.CarDetails.CarFaultsManager.CompleteCurrentOperation();
             }
             else
             {

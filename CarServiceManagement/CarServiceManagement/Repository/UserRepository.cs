@@ -10,6 +10,9 @@ namespace CarServiceManagement.Repository
 {
     public class UserRepository
     {
+        private static UserRepository _instance = null;
+        private static readonly object _padlock = new object();
+
         private static readonly List<User> Users = new List<User>
         {
             new User(1, "luci", "luci", EUserType.CLIENT),
@@ -24,6 +27,21 @@ namespace CarServiceManagement.Repository
             SetCarToUser("iulia", "2FMHK6DT7FBA101010");
             SetCarToUser("ioana", "2FMHK6DT7FBA13402");
             SetCarToUser("george", "2FMHK6DT7FBA251530");
+        }
+
+        public static UserRepository Instance
+        {
+            get
+            {
+                lock (_padlock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new UserRepository();
+                    }
+                    return _instance;
+                }
+            }
         }
 
         public bool CheckIfUserExists(string username, string password)
@@ -64,7 +82,7 @@ namespace CarServiceManagement.Repository
                 var user = FindUserByUsername(username);
                 if (user != null)
                 {
-                    user.SetCar(car);
+                    user.Car = car;
                 }
             }
         }

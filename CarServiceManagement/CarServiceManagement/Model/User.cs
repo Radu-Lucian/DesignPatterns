@@ -9,7 +9,7 @@ namespace CarServiceManagement.Model
         public string Username { get; set; }
         public string Password { get; set; }
         public EUserType Type { get; set; }
-        private Car Car { get; set; }
+        public Car Car { get; set; }
 
         public User(int id, string username, string password, EUserType type)
         {
@@ -17,11 +17,6 @@ namespace CarServiceManagement.Model
             this.Username = username;
             this.Password = password;
             this.Type = type;
-        }
-
-        public void SetCar(Car car)
-        {
-            this.Car = car;
         }
 
         public override string ToString()

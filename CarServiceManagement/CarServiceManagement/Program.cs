@@ -37,8 +37,6 @@ namespace CarServiceManagement
             );
 
             var menu = new ProxyMenu();
-            var car = new Car(new CarDetails(ECarType.EDiesel, "Ford", "grey", "2FMHK6DT7FBA13402", "BV 29 STO"));
-
             int input;
 
             DisplayMenu();
@@ -66,12 +64,10 @@ namespace CarServiceManagement
                             menu.LogIn(username, password);
                             break;
                         case 2:
-                            menu.CheckCar(car);
+                            menu.CheckCar(null);
                             break;
                         case 3:
-                            menu.ServiceCar(car);
-                            car.CarDetails.CarFaultsManager.AddFault("Probleme la frane");
-                            car.CarDetails.CarFaultsManager.CompleteCurrentOperation();
+                            menu.ServiceCar(null);
                             break;
                         case 4:
                             menu.RentACar();

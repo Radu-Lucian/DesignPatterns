@@ -1,13 +1,9 @@
 ﻿using CarServiceManagement.Logging;
 using CarServiceManagement.Logging.Observer;
 using CarServiceManagement.Proxy;
-using CarServiceManagement.Model;
-using CarServiceManagement.State;
-using CarServiceManagement.Util;
 using System;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace CarServiceManagement
 {
